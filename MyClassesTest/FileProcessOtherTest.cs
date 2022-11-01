@@ -42,6 +42,15 @@ public class FileProcessOtherTest: TestBase
     #endregion
 
     [TestMethod]
+    public void AreEqualTest()
+    {
+        var str1 = "Paul";
+        var str2 = "paul";
+        
+        Assert.AreEqual(str1, str2, true,$"{str1} and {str2} are not equal");
+    }
+
+    [TestMethod]
     public void FileNameDoesExistSimpleMessage()
     {
         FileProcess fp = new();
