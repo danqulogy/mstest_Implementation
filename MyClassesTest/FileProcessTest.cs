@@ -42,7 +42,13 @@ public class FileProcessTest: TestBase
     {
         TestContext.WriteLine("TestCleanup() method ...");
     }
-  
+
+    [TestMethod]
+    [Timeout(3000)]
+    public void SimulateTimeout()
+    {
+        Thread.Sleep(4000);
+    }
     
     [TestMethod]
     [Description("Check to see if a file exist")]
