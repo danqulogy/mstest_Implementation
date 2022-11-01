@@ -67,7 +67,7 @@ public class FileProcessOtherTest: TestBase
 
         fromCall = fp.FileExist(_GoodFileName);
         
-        Assert.IsFalse(fromCall, "File: {0} does not exist", _GoodFileName);
+        Assert.IsTrue(fromCall, "File: {0} does not exist", _GoodFileName);
     }
     
 }

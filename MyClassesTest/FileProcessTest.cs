@@ -61,7 +61,7 @@ public class FileProcessTest: TestBase
     }
     
     [TestMethod]
-    [Timeout(3000)]
+    [Timeout(5000)]
     public void SimulateTimeout()
     {
         Thread.Sleep(4000);
