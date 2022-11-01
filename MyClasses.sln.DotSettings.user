@@ -5,5 +5,6 @@
     &lt;TestId&gt;MSTest::11ED7D7F-F867-4B36-827B-AB2F920408A2::net6.0::MyClassesTest.FileProcessTest&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;MSTest::11ED7D7F-F867-4B36-827B-AB2F920408A2::net6.0::MyClassesTest.FileProcessOtherTest.FileNameDoesExistSimpleMessage&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;MSTest::11ED7D7F-F867-4B36-827B-AB2F920408A2::net6.0::MyClassesTest.FileProcessOtherTest.AreEqualTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::11ED7D7F-F867-4B36-827B-AB2F920408A2::net6.0::MyClassesTest.FileProcessOtherTest.AreSameTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
