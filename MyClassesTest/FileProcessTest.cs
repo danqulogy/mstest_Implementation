@@ -83,7 +83,7 @@ public class FileProcessTest: TestBase
     }
     
     [TestMethod]
-    [Description("Check to see if a filename is null via trycatch")]
+    [Description("Check to see if a filename is null via try-catch")]
     public void FileNameNullOrEmpty_TryCatch()
     {
         FileProcess fp = new();
