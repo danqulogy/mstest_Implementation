@@ -43,6 +43,15 @@ public class FileProcessTest: TestBase
         TestContext.WriteLine("TestCleanup() method ...");
     }
 
+
+    [TestMethod]
+    [DataRow(1,1, DisplayName = "1 and 1")]
+    [DataRow(1,1, DisplayName = "2 and 2")]
+    public void AreNumbersEqual(int a, int b)
+    {
+        Assert.AreEqual(a, b);
+    }
+    
     [TestMethod]
     [Timeout(3000)]
     public void SimulateTimeout()
