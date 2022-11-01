@@ -33,6 +33,7 @@ public class FileProcessTest: TestBase
     public void TestInitialize()
     {
         TestContext.WriteLine("TestInitialize() method called...");
+        WriteDescription(this.GetType());
     }
 
 
@@ -45,6 +46,10 @@ public class FileProcessTest: TestBase
     
     [TestMethod]
     [Description("Check to see if a file exist")]
+    [Owner("BenWhite")]
+    [Priority(1)]
+    [TestCategory("NoException")]
+    [Ignore]
     public void FileNameDoesExist()
     {
         FileProcess fp = new();
@@ -61,6 +66,7 @@ public class FileProcessTest: TestBase
     
     [TestMethod]
     [Description("Check to see if a file does not exist")]
+    [Owner("Dan")]
     public void FileNameDoesNotExist()
     {
         FileProcess fp = new();
@@ -74,6 +80,7 @@ public class FileProcessTest: TestBase
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
     [Description("Check to see if a filename is null via attributes")]
+    [Owner("BenWhite")]
     public void FileNameNullOrEmpty_UsingAttribute()
     {
         FileProcess fp = new();
@@ -83,6 +90,7 @@ public class FileProcessTest: TestBase
     }
     
     [TestMethod]
+    [Owner("Dan")]
     [Description("Check to see if a filename is null via try-catch")]
     public void FileNameNullOrEmpty_TryCatch()
     {

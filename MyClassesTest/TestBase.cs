@@ -7,7 +7,7 @@ public class TestBase
 {
     protected string _GoodFileName = "";
     
-    protected TestContext TestContext { get; set; }
+    public TestContext TestContext { get; set; }
 
     protected void WriteDescription(Type type)
     {
