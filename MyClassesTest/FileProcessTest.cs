@@ -3,26 +3,48 @@ using MyClasses;
 namespace MyClassesTest;
 
 [TestClass]
-public class FileProcessTest
+public class FileProcessTest: TestBase
 {
-    protected string _GoodFileName = "";
+   
     private const string BAD_FILE_NAME = @"C:\Windows\nonExist.exe";
     
     private const string GOOD_FILE_NAME = @"C:\Windows\Regedit.exe";
 
-    protected void SetGoodFileName()
+
+    [ClassInitialize()]
+    public static void SomethingElse(TestContext tc)
     {
-        _GoodFileName = TestContext.Properties["GoodFileName"]?.ToString();
-        if (_GoodFileName.Contains("[AppPath]"))
-        {
-            _GoodFileName = _GoodFileName.Replace("[AppPath]",
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-        }
+        // TODO: Do class initialization...
+        tc.WriteLine("In ClassInitialize() method");
     }
-    
-    public TestContext TestContext { get; set; }    
+
+    /**
+     * Test context is gone by the time of cleanup
+     */
+    [ClassCleanup]
+    public static void ClassCleanup()
+    {
+        // TODO: do class clean up...
+        
+    }
+
+
+    [TestInitialize]
+    public void TestInitialize()
+    {
+        TestContext.WriteLine("TestInitialize() method called...");
+    }
+
+
+    [TestCleanup]
+    public void TestCleanup()
+    {
+        TestContext.WriteLine("TestCleanup() method ...");
+    }
+  
     
     [TestMethod]
+    [Description("Check to see if a file exist")]
     public void FileNameDoesExist()
     {
         FileProcess fp = new();
@@ -33,11 +55,12 @@ public class FileProcessTest
         
         TestContext.Write($"Checking File {_GoodFileName}");
         var fromCall = fp.FileExist(GOOD_FILE_NAME);
-
+        
         Assert.IsTrue(fromCall);
     }
     
     [TestMethod]
+    [Description("Check to see if a file does not exist")]
     public void FileNameDoesNotExist()
     {
         FileProcess fp = new();
@@ -50,6 +73,7 @@ public class FileProcessTest
     
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
+    [Description("Check to see if a filename is null via attributes")]
     public void FileNameNullOrEmpty_UsingAttribute()
     {
         FileProcess fp = new();
@@ -59,6 +83,7 @@ public class FileProcessTest
     }
     
     [TestMethod]
+    [Description("Check to see if a filename is null via trycatch")]
     public void FileNameNullOrEmpty_TryCatch()
     {
         FileProcess fp = new();
