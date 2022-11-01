@@ -43,6 +43,14 @@ public class FileProcessTest: TestBase
         TestContext.WriteLine("TestCleanup() method ...");
     }
 
+    [TestMethod]
+    [DeploymentItem("FileToDeploy.txt")]
+    [DataRow("FileToDeploy.txt", DisplayName = "Check if FileToDeploy.txt exist")]
+    public void CheckFileExist(string fileName)
+    {
+        FileProcess fp = new();
+        fp.FileExist(fileName);
+    }
 
     [TestMethod]
     [DataRow(1,1, DisplayName = "1 and 1")]
